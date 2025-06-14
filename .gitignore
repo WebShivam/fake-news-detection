@@ -1,0 +1,19 @@
+# Ignore virtual environments
+.venv/
+env/
+venv/
+
+# Ignore model files (unless you want to include trained models)
+
+*.pkl
+*.txt
+
+# Ignore IDE/editor folders
+__pycache__/
+*.pyc
+.vscode/
+.idea/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
