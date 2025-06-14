@@ -20,13 +20,13 @@ import pickle
 # Load models and vectorizer
 @st.cache_resource
 def load_models():
-    with open("model_files/vectorizer.pkl", "rb") as f:
+    with open("./model_files/vectorizer.pkl", "rb") as f:
         vectorizer = pickle.load(f)
-    with open("model_files/nb_model.pkl", "rb") as f:
+    with open("./model_files/nb_model.pkl", "rb") as f:
         nb_model = pickle.load(f)
-    with open("model_files/lr_model.pkl", "rb") as f:
+    with open("./model_files/lr_model.pkl", "rb") as f:
         lr_model = pickle.load(f)
-    with open("model_files/svm_model.pkl", "rb") as f:
+    with open("./model_files/svm_model.pkl", "rb") as f:
         svm_model = pickle.load(f)
     return vectorizer, nb_model, lr_model, svm_model
 
@@ -36,11 +36,11 @@ vectorizer, nb_model, lr_model, svm_model = load_models()
 # This function reads the accuracy from .txt files
 def load_accuracies():
     try:
-        with open("model_files/nb_accuracy.txt", "r") as f:
+        with open("./model_files/nb_accuracy.txt", "r") as f:
             nb_acc = f.read()
-        with open("model_files/lr_accuracy.txt", "r") as f:
+        with open("./model_files/lr_accuracy.txt", "r") as f:
             lr_acc = f.read()
-        with open("model_files/svm_accuracy.txt", "r") as f:
+        with open("./model_files/svm_accuracy.txt", "r") as f:
             svm_acc = f.read()
         return nb_acc, lr_acc, svm_acc
     except:
