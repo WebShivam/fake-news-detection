@@ -1,3 +1,5 @@
+
+
 import pandas as pd
 import os
 import joblib
@@ -11,8 +13,8 @@ true_df = pd.read_csv("data/True.csv")
 fake_df = pd.read_csv("data/Fake.csv")
 
 # Add labels
-true_df["label"] = 0 # Real news
-fake_df["label"] = 1 # Fake news
+true_df["label"] = 1  # Real news
+fake_df["label"] = 0  # Fake news
 
 # Combine the datasets
 df = pd.concat([true_df, fake_df], ignore_index=True)
@@ -41,13 +43,10 @@ svm_predictions = svm_model.predict(X_test_vec)
 svm_accuracy = accuracy_score(y_test, svm_predictions)
 
 # Save model and accuracy
-
 os.makedirs("../model_files", exist_ok=True)
 
-joblib.dump(svm_model, "../model_files/svm_model.pkl")
-joblib.dump(vectorizer, "../model_files/vectorizer.pkl")
-
-with open("../model_files/svm_accuracy.txt", "w") as f:
+joblib.dump(svm_model, "model_files/svm_model.pkl")
+with open("model_files/svm_accuracy.txt", "w") as f:
     f.write(str(round(svm_accuracy * 100, 2)))
 
 print(f"SVM Model trained. Accuracy: {svm_accuracy * 100:.2f}%")

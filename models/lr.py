@@ -39,8 +39,8 @@ accuracy = accuracy_score(y_test, predictions)
 # Save model and accuracy
 os.makedirs("model_files", exist_ok=True)
 
-joblib.dump(model, "../model_files/lr_model.pkl")
-with open("../model_files/lr_accuracy.txt", "w") as f:
+joblib.dump(model, "model_files/lr_model.pkl")
+with open("model_files/lr_accuracy.txt", "w") as f:
     f.write(str(round(accuracy * 100, 2)))
 
 print(f"Logistic Regression Model trained. Accuracy: {accuracy * 100:.2f}%")
