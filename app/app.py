@@ -21,11 +21,11 @@ vectorizer, nb_model, lr_model, svm_model = load_models()
 # ----------------- Load accuracy from .txt files -----------------
 def load_accuracies():
     try:
-        with open("model_files/nb_accuracy.txt", "r") as f:
+        with open("./model_files/nb_accuracy.txt", "r") as f:
             nb_acc = f.read()
-        with open("model_files/lr_accuracy.txt", "r") as f:
+        with open("./model_files/lr_accuracy.txt", "r") as f:
             lr_acc = f.read()
-        with open("model_files/svm_accuracy.txt", "r") as f:
+        with open("./model_files/svm_accuracy.txt", "r") as f:
             svm_acc = f.read()
         return nb_acc, lr_acc, svm_acc
     except:
